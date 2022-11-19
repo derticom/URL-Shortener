@@ -15,7 +15,6 @@ public class UserDaoImpl implements UserDao {
         this.entityManager = entityManager;
     }
 
-    @Transactional
     @Override
     public List<User> getAllUsers() {
         return entityManager.createQuery("SELECT u FROM User u", User.class).getResultList();
@@ -26,7 +25,6 @@ public class UserDaoImpl implements UserDao {
         entityManager.persist(user);
     }
 
-    @Transactional
     @Override
     public User getUser(long id) {
         return entityManager.createQuery(
