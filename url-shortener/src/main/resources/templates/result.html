@@ -12,15 +12,24 @@
 <div class="container py-5">
 
     <h1 class="h2">Сервис сокращения ссылок</h1>
-    <p>С помощью нашего бесплатного и универсального сервиса сокращения URL Вы можете сделать из длинной ссылки короткую,
+    <p>С помощью нашего бесплатного и универсального сервиса сокращения URL Вы можете сделать из длинной ссылки
+        короткую,
         или просто - сократить или укоротить ссылку. Короткие ссылки удобно отсылать в сообщениях или комментариях на
         facebook, instagram, twitter, vk, whatsapp, telegram или любом другом сервисе или сайте.</p>
 
-    <form action="/" method="post">
+    <form>
         <div class="mb-3">
-            <input type="URL" name="link" class="form-control" placeholder="Вставьте длинный URL">
+            <input type="text" id="link" class="form-control" th:value="${toView}">
         </div>
-        <button type="submit" class="btn btn-primary">Сократить</button>
+        <button onclick="copyToClipboard()" class="btn btn-primary">Скопировать</button>
+        <script>
+            function copyToClipboard() {
+                var myField = document.getElementById("link");
+                myField.select();
+                document.execCommand("copy");
+                event.preventDefault();
+            }
+        </script>
     </form>
 
 </div>

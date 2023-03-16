@@ -1,20 +1,19 @@
 package ru.derticom.urlshortener.services;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import ru.derticom.urlshortener.models.Link;
 import ru.derticom.urlshortener.repositories.LinkRepository;
 
+import java.util.Random;
+
 @Service
 public class LinkService {
 
-    @Autowired
     private final LinkRepository linkRepository;
 
     public LinkService(LinkRepository linkRepository) {
         this.linkRepository = linkRepository;
     }
-
 
 
     public void saveLink(Link link) {
@@ -35,6 +34,21 @@ public class LinkService {
         } else {
             return null;
         }
+    }
+
+
+    public String generateShortLink() {
+
+        int shortLinkLength = 7;
+        String characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+        Random random = new Random();
+        StringBuilder shortLink = new StringBuilder();
+
+        for (int i = 0; i < shortLinkLength; i++) {
+            int index = random.nextInt(characters.length());
+            shortLink.append(characters.charAt(index));
+        }
+        return shortLink.toString();
     }
 
 

@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Redirect</title>
+</head>
+<body>
+<script th:inline="javascript">
+
+  var redirect_link = [[${redirect_link}]];
+
+
+  window.location.replace(redirect_link);
+</script>
+</body>
+</html>

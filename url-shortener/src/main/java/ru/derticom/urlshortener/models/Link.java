@@ -10,8 +10,8 @@ public class Link {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @Column(name = "long_link")
-    private String longLink;
+    @Column(name = "original_link")
+    private String originalLink;
 
     @Column(name = "short_link")
     private String shortLink;
@@ -19,8 +19,8 @@ public class Link {
     public Link() {
     }
 
-    public Link(String longLink, String shortLink) {
-        this.longLink = longLink;
+    public Link(String originalLink, String shortLink) {
+        this.originalLink = originalLink;
         this.shortLink = shortLink;
     }
 
@@ -32,12 +32,12 @@ public class Link {
         this.id = id;
     }
 
-    public String getLongLink() {
-        return longLink;
+    public String getOriginalLink() {
+        return originalLink;
     }
 
-    public void setLongLink(String longLink) {
-        this.longLink = longLink;
+    public void setOriginalLink(String longLink) {
+        this.originalLink = longLink;
     }
 
     public String getShortLink() {
