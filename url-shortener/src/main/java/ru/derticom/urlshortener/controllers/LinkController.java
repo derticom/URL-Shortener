@@ -34,8 +34,9 @@ public class LinkController {
 
         linkService.saveLink(new Link(originalLink, shortLink));
 
-        model.addAttribute("toView", request.getRequestURL() + shortLink);
-
+        model.addAttribute("link", request.getRequestURL() + shortLink);
+        model.addAttribute("qr", "http://api.qrserver.com/v1/create-qr-code/?data="
+                + request.getRequestURL() + shortLink + "&amp;size=150x150");
         return "result";
     }
 
