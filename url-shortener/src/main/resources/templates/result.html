@@ -19,7 +19,7 @@
 
     <form>
         <div class="mb-3">
-            <input type="text" id="link" class="form-control" th:value="${toView}">
+            <input type="text" id="link" class="form-control" th:value="${link}">
         </div>
         <button onclick="copyToClipboard()" class="btn btn-primary">Скопировать</button>
         <script>
@@ -30,6 +30,12 @@
                 event.preventDefault();
             }
         </script>
+
+        <div class="mb-3">
+            <br>
+            <img th:src="${qr}" alt="QR code image">
+        </div>
+
     </form>
 
 </div>
